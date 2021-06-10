@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Document</title>
+    <style>
+
+body{
+    background-color: white;
+}
+  
+#timer {
+  color: #CA9E7B;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Georgia', serif;
+  font-size: .7em;
+  letter-spacing: 5px;
+}
+
+.years, .months, .days {
+  display: inline-block;
+  padding: 20px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.years {
+  background: #E2D3CD;
+}
+
+.months {
+  background: #E3DAD5;
+}
+
+.days {
+  background: #DBCDBC;
+}
+
+.numbers {
+  font-family: 'Trebuchet MS', sans-serif;
+  color:  #B8926B;
+  font-size: 4em;
+  text-align: center;
+}
+
+.white {
+  position: absolute;
+  background:  #eeeeee;
+  height: 85px;
+  width: 75px;
+  left: 30%;
+  top: 2%;
+}
+
+.red {
+  position: absolute;
+  background:  #EF2F3C;
+  left: 18%;
+  top: 9%;
+  height: 65px;
+  width: 70px;
+ 
+}
+
+.blue {
+  position: absolute;
+  background:  #276FBF;
+  height: 80px;
+  width: 80px;
+  left: 60%;
+  top: 5%;
+
+
+}
+
+
+    </style>
+</head>
+<body>
+    
+<div id="timer">
+
+    <div class="years"> 
+        <div id="years" class="numbers "> </div>years</div> 
+      <div class="months"> 
+        <div  id="months" class="numbers"> </div>months</div> 
+      <div class="days"> 
+        <div  id="days" class="numbers"> </div>days</div> 
+
+</div>
+
+</body>
+<script>
+    const year = new Date().getFullYear();
+const myDate = new Date('Feb 27, 2021');
+console.log(myDate);
+
+// countdown
+let timer = setInterval(function() {
+
+  // get today's date
+  const today = new Date().getTime();
+
+  // get the difference
+  const diff = today - myDate;
+
+  // math
+  let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+  let months = Math.floor(diff % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24 * 30));
+  let days = Math.floor(diff % (1000 * 60 * 60 * 24 * 30) / (1000 * 60 * 60 * 24));
+
+  // display
+  document.getElementById("years").innerHTML=years
+  document.getElementById("months").innerHTML=months
+  document.getElementById("days").innerHTML=days
+
+
+
+}, 1);
+</script>
+</html>
